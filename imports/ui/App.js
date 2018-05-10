@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
  
-import Task from './Task.js';
+import Route from './Route.js';
  
 // App component - represents the whole app
 export default class App extends Component {
   getTasks() {
     return [
-      { _id: 1, text: 'San Francisco' }
+      { _id: 1, text: 'Using nextbus API' }
     ];
   }
  
   renderTasks() {
     return this.getTasks().map((task) => (
-      <Task key={task._id} task={task} />
+      <Route key={task._id} task={task} />
     ));
   }
  
