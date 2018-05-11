@@ -1,20 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Meteor } from "meteor/meteor";
+import { withTracker } from "meteor/react-meteor-data";
  
-import Route from './Route.js';
+import Route from "./Route.js";
  
-// App component - represents the whole app
-export default class App extends Component {
-  getTasks() {
-    return [
-      { _id: 1, text: 'Using nextbus API' }
-    ];
+export class App extends Component {
+
+   constructor(props) {
+    super(props);
+
+    this.state={
+      data:null
+    };
+
   }
- 
-  renderTasks() {
-    return this.getTasks().map((task) => (
-      <Route key={task._id} task={task} />
-    ));
+
+  componentDidMount(){
+
+    this.callAPI();
   }
+
+  callAPI() {
+
+  fetch("http://webservices.nextbus.com/service/publicJSONFeed?command=vehicleLocations&a=sf-muni&t=0")
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    this.setState({data: data.vehicle });
+  })
+  .catch((err) => {console.log(err.message)});
+
+  Meteor.setInterval(() => {
+
+      fetch("http://webservices.nextbus.com/service/publicJSONFeed?command=vehicleLocations&a=sf-muni&t=0")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.setState({data: data.vehicle });
+      })
+      .catch((err) => {console.log(err.message)});
+
+    } ,12000);
+}
  
   render() {
     return (
@@ -22,11 +52,18 @@ export default class App extends Component {
         <header>
           <h1>Routes from San Francisco</h1>
         </header>
+
+        <Route buses = {this.state.data}></Route>
  
         <ul>
-          {this.renderTasks()}
         </ul>
       </div>
     );
   }
 }
+
+export default withTracker(
+  () => {
+    return {};
+  }
+  )(App);
