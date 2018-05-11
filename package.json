@@ -4,13 +4,6 @@
   "scripts": {
     "start": "meteor run"
   },
-  "scripts": {
-    "dev": "razzle start",
-    "build": "razzle build",
-    "test": "razzle test --env=jsdom",
-    "start": "NODE_ENV=production node build/server.js",
-    "heroku-postbuild": "npm run build"
-  },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.42",
     "d3": "^4.13.0",
