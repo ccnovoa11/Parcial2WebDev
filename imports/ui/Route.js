@@ -68,7 +68,6 @@ class Route extends Component {
 	}
 
 	updateGraph (props){
-		console.log("entró");
 		if (!props.buses) return ;
 
 		let nestedBuses = d3.nest().key((d) => d.routeTag).entries(props.buses);
@@ -174,7 +173,7 @@ class Route extends Component {
 	render() {
 		return (
 			<div> 
-			<svg width="950" height="670" ref = {(svg) => this.svg = svg}/>
+			<svg width="950" height="700" ref = {(svg) => this.svg = svg}/>
 			</div> 
 			); 
 	}
