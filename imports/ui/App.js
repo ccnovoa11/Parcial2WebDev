@@ -76,7 +76,6 @@ getDataMultipleTimes() {
         <div className="titulo">
           <h1>Routes from San Francisco</h1>
         </div>
-
         <Route buses = {this.state.data}></Route>
         <p className = "zonaComentario">¿Algún problema?. Deja que los demás lo sepan!</p>
         <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
