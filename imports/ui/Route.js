@@ -172,9 +172,7 @@ class Route extends Component {
 
 	render() {
 		return (
-			<div> 
 			<svg width="950" height="700" ref = {(svg) => this.svg = svg}/>
-			</div> 
 			); 
 	}
 }

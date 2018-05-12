@@ -71,10 +71,10 @@ getDataMultipleTimes() {
 
   render() {
     return (
-      <div className="container">
-        <AccountsUIWrapper />
+      <div className="container">        
         <div className="titulo">
           <h1>Routes from San Francisco</h1>
+          <AccountsUIWrapper />
         </div>
         <Route buses = {this.state.data}></Route>
         <p className = "zonaComentario">¿Algún problema?. Deja que los demás lo sepan!</p>
