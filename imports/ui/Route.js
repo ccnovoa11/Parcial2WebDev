@@ -30,20 +30,10 @@ class Route extends Component {
 
 		this.g.append("g")
 		.attr("class", "axis-x")
-		.attr("transform", "translate(0," + (this.height- this.margin.top - this.margin.bottom) + ")")
-		.call(d3.axisBottom(this.x));
+		.attr("transform", "translate(0," + (this.height- this.margin.top - this.margin.bottom) + ")");
 
 		this.g.append("g")
-		.attr("class", "axis-y")
-		.call(d3.axisLeft(this.y).ticks(null, "s"))
-		.append("text")
-		.attr("x", 2)
-		.attr("y", this.y(this.y.ticks().pop()) + 0.5)
-		.attr("dy", "0.32em")
-		.attr("fill", "#000")
-		.attr("font-weight", "bold")
-		.attr("text-anchor", "start")
-		.text("Added distance");
+		.attr("class", "axis-y");
 	}
 
 	componentWillUpdate(props){			
