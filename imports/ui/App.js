@@ -73,12 +73,12 @@ getDataMultipleTimes() {
     return (
       <div className="container">
         <AccountsUIWrapper />
-        <header>
+        <div className="titulo">
           <h1>Routes from San Francisco</h1>
-        </header>
+        </div>
 
         <Route buses = {this.state.data}></Route>
-        <p className"zonaComentario">¿Algún problema?. Deja que los demás lo sepan!</p>
+        <p className = "zonaComentario">¿Algún problema?. Deja que los demás lo sepan!</p>
         <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
             <input
               type="text"
