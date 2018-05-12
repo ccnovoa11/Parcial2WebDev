@@ -6,11 +6,16 @@ export default class Comentario extends Component {
 
 	render() {
 		return (
-			<p>
-	            <strong>
-	            	{this.props.comentario.username}
-	            </strong>: {this.props.comentario.text}
-			</p>
+			<div>
+				<div className ="col-sm-6">
+	            	<h4>
+	            		Usuario: <br/>{this.props.comentario.username}
+	            	</h4>
+	            	<p> 
+	            		{this.props.comentario.text}
+	            	</p>
+	            </div>
+			</div>
 			);
 	}
 }

@@ -72,21 +72,30 @@ getDataMultipleTimes() {
   render() {
     return (
       <div className="container">        
-        <div className="titulo">
-          <h1>Routes from San Francisco</h1>
+        <div className="titulo row">
+          <div className="col-sm-10">
+            <h1>Routes from San Francisco</h1>
+          </div>
+          <div className="col-sm-2">
           <AccountsUIWrapper />
+          </div>
         </div>
-        <Route buses = {this.state.data}></Route>
-        <p className = "zonaComentario">¿Algún problema?. Deja que los demás lo sepan!</p>
-        <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
-            <input
-              type="text"
-              ref="textInput"
-              placeholder="Comentario..."/>
-       </form>
-       <div>
-          {this.mostrarComentarios()}
-       </div>
+
+        <div className="titulo row">
+          <div className="col-sm-8">
+            <Route buses = {this.state.data}></Route>
+          </div>
+          <div className="col-sm-4">        
+            <p className = "zonaComentario">¿Algún problema?. Deja que los demás lo sepan!</p>
+            <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
+              <input
+                type="text"
+                ref="textInput"
+                placeholder="Comentario..."/>
+            </form>       
+            {this.mostrarComentarios()}
+          </div>
+        </div>
       </div>
       );
   }
